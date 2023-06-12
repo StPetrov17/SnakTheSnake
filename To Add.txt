@@ -1,0 +1,13 @@
+option_buttons: - DONE
+ - size: small, mid, big - DONE
+ - game speed: slow, normal, fast - DONE
+ - back button - DONE
+
+clean up the functions - DONE
+
+Resize the application - DONE
+
+Make bad food option - DONE
+ - make the code - DONE
+ - make the number changes - DONE
+ - make the button and bind it - DONE
