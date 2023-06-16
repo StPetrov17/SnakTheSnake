@@ -1,6 +1,8 @@
 from tkinter import *
 from veriables import *
 from random import *
+from all_usefull_functions import make_BUTTON_with_image_and_pack_it, open_and_re_size_image
+from PIL import Image, ImageTk
 
 
 """
@@ -238,6 +240,10 @@ def game_over():
     canvas.delete(ALL)
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2, font=("Georgia", 25), text="Game Over",
                        fill="red", tag="game_over")
+    # make_BUTTON_with_image_and_pack_it("menu_button", canvas, menu_button_image, open_menu, 0.5, 0.7)
+    # make_BUTTON_with_image_and_pack_it("restart_button", canvas, restart_button_image, restart_game, 0.5, 0.8)
+    make_BUTTON_with_image_and_pack_it("exit_button", canvas, exit_button_image, close_game, 0.5, 0.9)
+
 
 
 def check_food_in_snake(snake, food):
@@ -250,6 +256,29 @@ def check_food_in_snake(snake, food):
         if x == body_part[0] and y == body_part[1]:
             return True
     return False
+
+
+def close_game():
+    game_window.destroy()
+
+
+def open_game():
+    game_window.mainloop()
+
+
+def restart_game():
+    for part in canvas.winfo_children():
+        part.destroy()
+    canvas.delete(ALL)
+
+
+def open_menu():
+    from Menu import menu_window
+    close_game()
+    if __name__ == "__main__":
+        menu_window.mainloop()
+
+
 
 
 """
@@ -299,9 +328,16 @@ y = int((screen_height / 2) - (window_height / 2))
 # spaces cannot be in the ()
 game_window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
+
 snake = Snak()
 food = Food()
 
 next_turn(snake, food)
 
+"""
+Images used
+"""
 
+restart_button_image = open_and_re_size_image("restart_button", "restart_button", 100, 50)
+exit_button_image = open_and_re_size_image("exit_button", "exit_button", 90, 45)
+menu_button_image = open_and_re_size_image("menu_button", "menu_button", 100, 50)
