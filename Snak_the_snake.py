@@ -2,7 +2,7 @@ from tkinter import *
 from veriables import *
 from random import *
 from all_usefull_functions import make_BUTTON_with_image_and_pack_it, open_and_re_size_image
-from PIL import Image, ImageTk
+
 
 
 """
